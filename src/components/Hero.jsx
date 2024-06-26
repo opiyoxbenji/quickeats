@@ -4,7 +4,7 @@ import React from 'react';
 const Hero = () => {
 	return (
 		<div className='text-amber-900'>
-			<div className='max-w-[800px] mt-[-96px] w-full h-screen mx-auto  text-center flex flex-col justify-center' style="background-image:url(https://)">
+			<div className='max-w-[800px] mt-[-96px] w-full h-screen mx-auto  text-center flex flex-col justify-center'>
 				<p className='font-bold p-2 uppercase text-lg'>
 					Quick Bites, Big Delights – Experience QuickEats Today!
 				</p>
@@ -26,3 +26,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// style="background-image:url(https://)
