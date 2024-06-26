@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const Navbar = () => {
+	const [nav, setNav] = useState(false);
+
+	const handleNav = () => {
+		setNav(!nav)
+	}
+
 	return (
 		<div className=''>
-			<nav className='flex justify-between items-center w-[92%] mx-auto'>
+			<nav className='flex justify-between items-center w-[92%] mx-auto h-20'>
 				<div>
 					<img
 						src='https://cdn-icons-png.flaticon.com/512/1046/1046784.png'
@@ -12,7 +19,7 @@ const Navbar = () => {
 					/>
 				</div>
 				<div className='md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5'>
-					<ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8'>
+					<ul className='flex md:flex-row flex-col  md:gap-[4vw] gap-8 '>
 						<li>
 							{' '}
 							<a
@@ -60,6 +67,61 @@ const Navbar = () => {
 						Sign In
 					</button>
 				</div>
+				<div onClick={handleNav} className='block md:hidden'>
+					{!nav ? (
+						<AiOutlineClose size={20} />
+					) : (
+						<AiOutlineMenu size={20} />
+					)}
+				</div>
+
+				{/* <div className={!nav ? 'fixed left-0 top-0 w-[60%] border-r bg-[#f0e4d1] ease-in-out duration-500' : 'fixed left-[-100%]'}>
+					<h1 className='w-full text-3xl font-bold text-orange-600 m-4'>
+						QuickEats
+					</h1>
+					<ul className='uppercase p-4'>
+						<li>
+							{' '}
+							<a
+								className='font-bold hover:text-orange-500'
+								href='#'>
+								Home
+							</a>
+						</li>
+						<li>
+							{' '}
+							<a
+								className='font-bold hover:text-orange-500'
+								href='#'>
+								Menu
+							</a>
+						</li>
+						<li>
+							{' '}
+							<a
+								className='font-bold hover:text-orange-500'
+								href='#'>
+								Offers
+							</a>
+						</li>
+						<li>
+							{' '}
+							<a
+								className='font-bold hover:text-orange-500'
+								href='#'>
+								Contact
+							</a>
+						</li>
+						<li>
+							{' '}
+							<a
+								className='font-bold  hover:text-orange-500'
+								href='#'>
+								Careers
+							</a>
+						</li>
+					</ul>
+				</div> */}
 			</nav>
 		</div>
 	);
