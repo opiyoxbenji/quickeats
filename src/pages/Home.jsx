@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Footer from '../components/Footer';
+import Hero from '../components/Hero';
+import Navbar from '../components/Navbar';
 
 const Home = () => {
 	return (
-		<div>Home</div>
-	)
-}
+		<div>
+			<Hero />
+		</div>
+	);
+};
 
-export default Home
+export default Home;

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { IoIosBasket } from 'react-icons/io';
 
 const Navbar = () => {
 	const [nav, setNav] = useState(false);
 
 	const handleNav = () => {
 		setNav(!nav)
-	}
+	} 
 
 	return (
 		<div className=''>
@@ -22,47 +25,50 @@ const Navbar = () => {
 					<ul className='flex md:flex-row flex-col  md:gap-[4vw] gap-8 '>
 						<li>
 							{' '}
-							<a
+							<Link
 								className='font-bold  hover:text-orange-500'
-								href='#'>
+								to="/">
 								Home
-							</a>
+							</Link>
 						</li>
 						<li>
 							{' '}
-							<a
+							<Link
 								className='font-bold  hover:text-orange-500'
-								href='#'>
+								to='/menu'>
 								Menu
-							</a>
+							</Link>
 						</li>
 						<li>
 							{' '}
-							<a
+							<Link
 								className='font-bold  hover:text-orange-500'
-								href='#'>
+								to='/offers'>
 								Offers
-							</a>
+							</Link>
 						</li>
 						<li>
 							{' '}
-							<a
+							<Link
 								className='font-bold  hover:text-orange-500'
-								href='#'>
+								to='/contact'>
 								Contact
-							</a>
+							</Link>
 						</li>
 						<li>
 							{' '}
-							<a
+							<Link
 								className='font-bold  hover:text-orange-500'
-								href='#'>
-								Careers
-							</a>
+								to='/about'>
+								About
+							</Link>
 						</li>
 					</ul>
 				</div>
 				<div className='flex items-center gap-6'>
+					<div>
+						<IoIosBasket className='w-7 h-7' />
+					</div>
 					<button className='bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-orange-500'>
 						Sign In
 					</button>
