@@ -27,7 +27,7 @@ const Navbar = () => {
 							{' '}
 							<Link
 								className='font-bold  hover:text-orange-500'
-								to="/">
+								to='/'>
 								Home
 							</Link>
 						</li>
@@ -65,7 +65,7 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-				<div className='flex items-center gap-6'>
+				<div className='flex items-center gap-6 '>
 					<div>
 						<IoIosBasket className='w-7 h-7' />
 					</div>

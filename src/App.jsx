@@ -7,6 +7,7 @@ import Offers from './pages/Offers';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Layout from './components/Layout';
+import Error from './pages/Error'
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				<Route path='/offers' element={<Offers />} />
 				<Route path='/contact' element={<Contact />} />
 				<Route path='/about' element={<About />} />
+				<Route path='*' element={ <Error />} />
 			</Route>
 		</Routes>
 	);
