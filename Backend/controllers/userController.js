@@ -7,7 +7,22 @@ import pkg from "statuses";
 const { message } = pkg;
 
 const userLogin = async (req, res) => {
-
+    const {email, password} = req.body;
+    try {
+        const user  = await userModel.findOne({email});
+        if (!user) {
+            return res.json({success:false, message: "User is non existent"});
+        }
+        const match = await bcrypt.compare(password, user.password);
+        if (!match) {
+            return res.json({success: false, message: "Credentials invalid, Nice Try"});
+        }
+        const tok = tokenCreation(user._id);
+        res.json({success:true, tok});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message: "Error signing user in"});
+    }
 }
 const tokenCreation = (id) => {
     return jwt.sign({id}, process.env.JWT_SECRET);
