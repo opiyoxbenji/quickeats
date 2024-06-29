@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import heroImage from '../assets/gravy.jpg';
+import heroImage from '../assets/gravy3.jpg';
 
 const Hero = () => {
 	return (
-		<section className='text-orange-700'>
+		<section className='text-[#DC3E26] relative'>
 			<div
-				className='mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center'
-				style={{ height: '100vh', marginTop: 0 }}>
+				className='mx-auto min-h-screen px-4 py-32 lg:px-32 lg:h-screen px-5 bg-cover bg-no-repeat'
+				style={{
+					backgroundImage: `url(${heroImage})`,
+					height: '100vh',
+					marginTop: 0,
+				}}>
 				<div className='mx-auto max-w-xl text-center'>
 					<p className='font-bold p-2 uppercase text-lg'>
 						Quick Bites, Big Delights – Experience QuickEats Today!
@@ -16,7 +20,7 @@ const Hero = () => {
 						Best in Town
 					</h1>
 					<div>
-						<p className='mt-4 sm:text-xl/relaxed'>
+						<p className='mt-4 sm:text-2xl/relaxed'>
 							Fast, Fresh, Flavorful!
 						</p>
 						{/* Typing animation */}
