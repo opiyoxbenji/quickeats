@@ -1,5 +1,5 @@
 import React from 'react';
-import {  FaDiscord, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import { FaDiscord, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
 	return (
@@ -12,7 +12,7 @@ const Footer = () => {
 							className='flex items-center'>
 							<img
 								src='https://cdn-icons-png.flaticon.com/512/1046/1046784.png'
-								className='h-8 me-3'
+								className='h-8 me-2'
 								alt='QuickEats Logo'
 							/>
 							<span className='self-center text-2xl font-semibold whitespace-nowrap dark:text-white'>
@@ -141,7 +141,10 @@ const Footer = () => {
 						<a
 							href='#'
 							className='text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5'>
-							<FaXTwitter className='w-6 h-6' aria-hidden='true' />
+							<FaXTwitter
+								className='w-6 h-6'
+								aria-hidden='true'
+							/>
 							<span className='sr-only'>Twitter page</span>
 						</a>
 						<a

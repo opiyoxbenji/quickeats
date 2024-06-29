@@ -1,90 +1,125 @@
-import React from 'react'
+import React from 'react';
 
 const Contact = () => {
-  return (
-		<section
-			className='mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen'
-			style={{ height: '100vh', marginTop: 0 }}>
-			<div className='grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x'>
-				<div className='py-6 md:py-0 md:px-6'>
-					<h1 className='text-4xl font-bold'>Get in touch</h1>
-					<p className='pt-2 pb-4'>
-						Fill in the form to start a conversation
+	return (
+		<div className='' id='contact'>
+			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center'>
+				<h2 className='text-4xl font-bold dark:text-dark-100'>
+					Contact Us
+				</h2>
+				<p className='pt-6 pb-6 text-base max-w-2xl text-center m-auto dark:text-dark-100'>
+					Want to contact us? Choose an option below and we'll be
+					happy to show you how we can transform your company's web
+					experience.
+				</p>
+			</div>
+			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 grid md:grid-cols-2 lg:grid-cols-2 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16'>
+				<div>
+					<h2 className='text-lg font-bold dark:text-dark-100'>
+						Contact Us
+					</h2>
+					<p className='max-w-sm mt-4 mb-4 dark:text-dark-100'>
+						Have something to say? We are here to help. Fill up the
+						form or send an email or call.
 					</p>
-					<div className='space-y-4'>
-						<p className='flex items-center'>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 20 20'
-								fill='currentColor'
-								className='w-5 h-5 mr-2 sm:mr-6'>
-								<path
-									fillRule='evenodd'
-									d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z'
-									clipRule='evenodd'></path>
-							</svg>
-							<span>Fake address, 9999 City</span>
-						</p>
-						<p className='flex items-center'>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 20 20'
-								fill='currentColor'
-								className='w-5 h-5 mr-2 sm:mr-6'>
-								<path d='M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z'></path>
-							</svg>
-							<span>123456789</span>
-						</p>
-						<p className='flex items-center'>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								viewBox='0 0 20 20'
-								fill='currentColor'
-								className='w-5 h-5 mr-2 sm:mr-6'>
-								<path d='M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z'></path>
-								<path d='M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z'></path>
-							</svg>
-							<span>contact@business.com</span>
-						</p>
+					<div className='flex items-center mt-8 space-x-2 text-dark-600 dark:text-dark-100'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							fill='none'
+							viewBox='0 0 24 24'
+							strokeWidth='1.5'
+							stroke='currentColor'
+							aria-hidden='true'
+							className='w-4 h-4'>
+							<path
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								d='M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z'
+							/>
+						</svg>
+						<span>14th avenue glory road</span>
+					</div>
+					<div className='flex items-center mt-2 space-x-2 text-dark-600 dark:text-dark-100'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							fill='none'
+							viewBox='0 0 24 24'
+							strokeWidth='1.5'
+							stroke='currentColor'
+							aria-hidden='true'
+							className='w-4 h-4'>
+							<path
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75'
+							/>
+						</svg>
+						<a href='mailto:hello@company.com'>hello@company.com</a>
+					</div>
+					<div className='flex items-center mt-2 space-x-2 text-dark-600 dark:text-dark-100'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							fill='none'
+							viewBox='0 0 24 24'
+							strokeWidth='1.5'
+							stroke='currentColor'
+							aria-hidden='true'
+							className='w-4 h-4'>
+							<path
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
+							/>
+						</svg>
+						<a href='tel:11111111111'>+51 11111111111</a>
 					</div>
 				</div>
-				<form
-					noValidate=''
-					className='flex flex-col py-6 space-y-6 md:py-0 md:px-6'>
-					<label className='block'>
-						<span className='mb-1'>Full name</span>
+				<div>
+					<form>
 						<input
-							type='text'
-							placeholder='Leroy Jenkins'
-							className='block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100'
+							type='checkbox'
+							className='hidden'
+							style={{ display: 'none' }}
+							name='botcheck'
 						/>
-					</label>
-					<label className='block'>
-						<span className='mb-1'>Email address</span>
-						<protonpass-control-5d5f data-protonpass-role='icon'></protonpass-control-5d5f>
-						<input
-							type='email'
-							placeholder='leroy@jenkins.com'
-							className='block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100'
-							// style='padding-right: 41.6px !important;'
-							data-protonpass-base-css='{"padding-right":""}'
-						/>
-					</label>
-					<label className='block'>
-						<span className='mb-1'>Message</span>
-						<textarea
-							rows='3'
-							className='block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100'></textarea>
-					</label>
-					<button
-						type='button'
-						className='self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-600 dark:text-gray-50 focus:dark:ring-violet-600 hover:dark:ring-violet-600'>
-						Submit
-					</button>
-				</form>
+						<div className='mb-5'>
+							<input
+								type='text'
+								placeholder='Full Name'
+								autoComplete='off'
+								className='w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0'
+								name='name'
+							/>
+						</div>
+						<div className='mb-5'>
+							<label htmlFor='email_address' className='sr-only'>
+								Email Address
+							</label>
+							<input
+								id='email_address'
+								type='email'
+								placeholder='Email Address'
+								autoComplete='off'
+								className='w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0'
+								name='email'
+							/>
+						</div>
+						<div className='mb-3'>
+							<textarea
+								placeholder='Your Message'
+								className='w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900 rounded-md outline-none h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0'
+								name='message'></textarea>
+						</div>
+						<button
+							type='submit'
+							className='w-full py-4 font-semibold text-white transition-colors bg-gray-900 rounded-md hover:bg-orange-500 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-gray-200 px-7 dark:bg-purple-600 dark:text-black'>
+							Send Message
+						</button>
+					</form>
+				</div>
 			</div>
-		</section>
-  );
-}
+		</div>
+	);
+};
 
-export default Contact
+export default Contact;

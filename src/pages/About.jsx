@@ -3,18 +3,14 @@ import chefImage from '../assets/chef.jpg';
 
 const About = () => {
 	return (
-		<section
-			style={{
-				minHeight: '100vh',
-				marginTop: 0,
-			}}>
+		<section style={{ minHeight: '100vh', marginTop: 0 }}>
 			<div className='container mx-auto py-16 px-4 sm:px-6 lg:px-8'>
-				<div className='grid grid-cols-1 md:grid-cols-2 items-center gap-8'>
+				<div className='grid grid-cols-1 lg:grid-cols-2 items-center gap-8'>
 					<div className='max-w-lg'>
-						<h2 className='text-3xl font-extrabold text-gray-900 sm:text-4xl'>
+						<h2 className='text-3xl font-extrabold dark:text-dark-100 sm:text-4xl'>
 							Why Order With Us?
 						</h2>
-						<p className='mt-4 text-gray-600 text-lg'>
+						<p className='mt-4 text-gray-700 text-lg'>
 							At QuickEats, we serve up lightning-fast bites with
 							mouthwatering flavors that hit the spot every time.
 							Our secret? A sprinkle of love, a dash of speed, and
@@ -40,8 +36,8 @@ const About = () => {
 						/>
 					</div>
 				</div>
-				<div className='flex flex-col sm:flex-row flex-wrap'>
-					<div className='sm:w-1/2 p-5'>
+				<div className='flex flex-col lg:flex-row items-center justify-center'>
+					<div className='lg:w-1/2 p-5 flex justify-center'>
 						<div className='image object-center text-center'>
 							<img
 								src='https://i.imgur.com/WbQnbas.png'
@@ -50,16 +46,15 @@ const About = () => {
 							/>
 						</div>
 					</div>
-					<div className='sm:w-1/2 p-5'>
+					<div className='lg:w-1/2 p-5'>
 						<div className='text'>
-							
 							<h2 className='my-4 font-bold text-3xl sm:text-4xl'>
 								About{' '}
 								<span className='text-indigo-600'>
 									Our Company
 								</span>
 							</h2>
-							<p className='text-gray-700'>
+							<p className='text-gray-900'>
 								At QuickEats, we are committed to providing
 								high-quality, freshly prepared meals that cater
 								to the modern, fast-paced lifestyle. Our mission
