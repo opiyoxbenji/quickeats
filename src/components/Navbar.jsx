@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { AiOutlineClose, AiOutlineMenuUnfold } from 'react-icons/ai';
 import { IoIosBasket } from 'react-icons/io';
+import Button from './Button';
 
 const Navbar = () => {
 	const [menu, setMenu] = useState(false);
@@ -11,12 +12,8 @@ const Navbar = () => {
 		setMenu(!menu);
 	};
 
-	const closeMenu = () => {
-		setMenu(!menu)
-	}
-
 	return (
-		<div className=''>
+		<div>
 			<nav className='flex justify-between items-center w-[92%] mx-auto h-20'>
 				<div>
 					<Link
@@ -61,13 +58,14 @@ const Navbar = () => {
 						</Link>
 					</nav>
 				</div>
-				<div className='flex items-center gap-6 '>
-					<div>
+				<div className='hidden md:flex items-center gap-6'>
+					{/* <div>
 						<IoIosBasket className='w-7 h-7 cursor-pointer' />
-					</div>
-					<button className='bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-orange-500 cursor-pointer'>
+					</div> */}
+					{/* <button className='bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-orange-500 cursor-pointer'>
 						Sign In
-					</button>
+					</button> */}
+					<Button title="login"/>
 				</div>
 				<div className='md:hidden flex items-center'>
 					{!menu ? (
@@ -78,7 +76,7 @@ const Navbar = () => {
 				</div>
 
 				<div
-					className={` ${
+					className={`${
 						menu ? 'translate-x-0' : '-translate-x-full'
 					} lg:hidden flex flex-col absolute bg-black text-white left-0 top-20 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}>
 					<Link
