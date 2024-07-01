@@ -68,12 +68,9 @@ const Navbar = () => {
 					</nav>
 				</div>
 				<div className='hidden md:flex items-center gap-6'>
-					{/* <div>
+					<div>
 						<IoIosBasket className='w-7 h-7 cursor-pointer' />
-					</div> */}
-					{/* <button className='bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-orange-500 cursor-pointer'>
-						Sign In
-					</button> */}
+					</div>
 					<Button title='login' onClick={openModal} />
 				</div>
 				<div className='md:hidden flex items-center'>
