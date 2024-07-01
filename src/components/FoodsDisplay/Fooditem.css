@@ -39,6 +39,7 @@
     font-size: 23px;
     font-weight: 500;
     margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .food_item_ingredients {
