@@ -117,7 +117,7 @@
 		"Category": "Ribs & Steaks",
 		"image": "https://media-cdn.tripadvisor.com/media/photo-s/1a/27/6c/e7/lamb-chops.jpg",
 		"Ingredients": ["Chips or Mashed potatoes", "Onion Rings", "400G Lamb Chops"],
-		"Price": 
+		"Price": 14.22
 		},
 		{
 		"id": 16,
@@ -181,7 +181,7 @@
 		"Category": "Chicken",
 		"image": "https://wikideals.co.za/media/catalog/product/h/a/hake1_1_1_2_1_1_1.jpg",
 		"Ingredients": ["Crumbed Chicken Strips", "Sweet chilli Mayo dressing", "Chips", "Onion Rings"],
-		"Price": 
+		"Price": 25.99
 		},
 		{
 		"id": 24,
@@ -357,7 +357,7 @@
 		"Category": "Seafood",
 		"image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSjE2R_8DvENfSnh58OqY9wPtsX_f2o66PAFPi03-lEEXExEqbv",
 		"Ingredients": ["Hake", "Prawns", "Calamari", "Tartare Sauce"],
-		"Price": 
+		"Price": 17.99
 		},
 		{
 		"id": 46,
@@ -453,7 +453,7 @@
 		"Category": "Pasta",
 		"image": "https://www.eefkooktzo.nl/wp-content/uploads/2024/02/Pasta-gorgonzola_.jpg",
 		"Ingredients": ["Gorgonzola", "Mushroom", "Cheese", "Cream"],
-		"Price":
+		"Price":36.50
 		},
 		{
 		"id": 58,
@@ -726,5 +726,5 @@
 		"image": "https://www.kahlua.com/wp-content/uploads/2023/10/White_Russian_16x9.jpeg",
 		"Ingredients": ["Vodka", "Heavy Cream", "Kahlu"],
 		"Price": 3.99
-		},
+		}
 ]
