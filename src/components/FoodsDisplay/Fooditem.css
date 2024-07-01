@@ -3,7 +3,6 @@
     flex-direction: column;
     width: 100%;
     max-width: 240px; /* Ensure a maximum width for each card */
-    margin: auto;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -66,23 +65,28 @@
 @media (max-width: 1600px) {
     .food-display-list {
         grid-template-columns: repeat(4, 1fr); /* 4 cards per row on large screens */
+        gap: 40px; /* Adjust gap for large screens */
+        padding: 0 5%; /* Reduce padding for large screens */
     }
 }
 
 @media (max-width: 1200px) {
     .food-display-list {
         grid-template-columns: repeat(3, 1fr); /* 3 cards per row on medium screens */
+        gap: 30px; /* Adjust gap for medium screens */
     }
 }
 
 @media (max-width: 900px) {
     .food-display-list {
         grid-template-columns: repeat(2, 1fr); /* 2 cards per row on small screens */
+        gap: 20px; /* Adjust gap for small screens */
     }
 }
 
 @media (max-width: 600px) {
     .food-display-list {
         grid-template-columns: repeat(1, 1fr); /* 1 card per row on very small screens */
+        gap: 15px; /* Adjust gap for very small screens */
     }
 }

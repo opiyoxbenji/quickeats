@@ -1,6 +1,6 @@
 .display-foods {
     margin-top: 30px;
-    padding: 0 20px; /* Add padding to keep cards away from screen edges */
+    padding: 0 10px; /* General padding */
 }
 
 .display-foods h2 {
@@ -12,8 +12,9 @@
 .food-display-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Ensure 5 cards per row */
-    gap: 30px;
-    row-gap: 50px;
+    gap: 50px; /* Increased gap between items */
+    row-gap: 70px; /* Increased row gap */
     margin-bottom: 50px; /* Added margin-bottom to prevent overflow into footer */
+    padding: 0 10%; /* Add padding to center the items */
     justify-items: center; /* Center items in the grid */
 }

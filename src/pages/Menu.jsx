@@ -7,7 +7,7 @@ const FoodDisplay = () => {
     const {food_list} = useContext(StoreContext);
     return (
 		<div className='display-foods' id='display-foods'>
-			<h2 className='flex items-center justify-center text-center'>
+			<h2 className='flex items-center justify-center text-center p-2'>
 				Top Dishes near you
 			</h2>
 			<div className='food-display-list'>
