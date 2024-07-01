@@ -30,21 +30,21 @@ const Footer = () => {
 									<a
 										href='https://quickeats.com/'
 										className='hover:underline'>
-										Kampala
+										Gauteng
 									</a>
 								</li>
 								<li className='mb-2'>
 									<a
 										href='https://tailwindcss.com/'
 										className='hover:underline'>
-										Gulu
+										Bhisho
 									</a>
 								</li>
 								<li className='mb-2'>
 									<a
 										href='https://tailwindcss.com/'
 										className='hover:underline'>
-										Nairobi
+										Cape Town
 									</a>
 								</li>
 								<li className='mb-2'>
