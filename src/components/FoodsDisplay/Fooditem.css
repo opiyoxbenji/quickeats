@@ -35,9 +35,10 @@
 }
 
 .food_item_name {
-    font-size: 15px;
+    font-size: 19px;
     font-weight: 500;
     margin-bottom: 5px;
+    padding-left: 10px;
 }
 
 .food_item_ingredients {
