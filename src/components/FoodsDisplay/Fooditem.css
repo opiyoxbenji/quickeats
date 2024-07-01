@@ -1,0 +1,13 @@
+.food_item{
+    width: 100%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0px, 0px, 10px black;
+    transition: 0.6s;
+    animation: fadeIn 2s;
+}
+.food_image{
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+
+}

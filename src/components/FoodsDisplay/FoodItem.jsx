@@ -4,7 +4,7 @@ const FoodItem = ({id, name, price, ingredients, image}) => {
     return(
         <div className="food_item">
             <div className="food_item_image_container">
-                <img className="food_image" src={image} alt="" />
+                <img className="food_image" src={image} alt=""/>
             </div>
             <div className="food_item_name">
                 <p>{name}</p>
