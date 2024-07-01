@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { AiOutlineClose, AiOutlineMenuUnfold } from 'react-icons/ai';
 import { IoIosBasket } from 'react-icons/io';
 import Button from './Button';
+import Modal from './Modal';
 
 const Navbar = () => {
 	const [menu, setMenu] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const handleChange = () => {
 		setMenu(!menu);
+	};
+
+	const openModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpen(false);
 	};
 
 	return (
@@ -65,7 +74,7 @@ const Navbar = () => {
 					{/* <button className='bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-orange-500 cursor-pointer'>
 						Sign In
 					</button> */}
-					<Button title="login"/>
+					<Button title='login' onClick={openModal} />
 				</div>
 				<div className='md:hidden flex items-center'>
 					{!menu ? (
@@ -106,6 +115,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 			</nav>
+			<Modal isOpen={isModalOpen} onClose={closeModal} />
 		</div>
 	);
 };
