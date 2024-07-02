@@ -15,11 +15,21 @@ const CategorySelection = ({ onSelectCategory, activeCategory }) => {
 				{categories.map((category, index) => (
 					<button
 						key={index}
-						className={`btn btn-primary m-2 ${
-							activeCategory === category ? 'active' : ''
-						}  hover:text-orange-500`}
+						className={`btn btn-primary m-2 relative ${
+							activeCategory === category
+								? 'active hover:text-orange-500'
+								: ''
+						}`}
 						onClick={() => onSelectCategory(category)}>
-						{category}
+						<span className='relative pb-1'>
+							{category}
+							{/* Red underline for active category */}
+							{activeCategory === category && (
+								<span
+									className='absolute left-0 bottom-0 w-full h-0.5 bg-orange-600'
+									aria-hidden='true'></span>
+							)}
+						</span>
 					</button>
 				))}
 			</div>
