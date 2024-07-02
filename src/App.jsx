@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Layout from './components/Layout';
 import Error from './pages/Error'
+import Cart from './pages/cart/Cart.jsx';
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				<Route path='/contact' element={<Contact />} />
 				<Route path='/about' element={<About />} />
 				<Route path='*' element={ <Error />} />
+				<Route path='/cart' element={ <Cart /> }/>
 			</Route>
 		</Routes>
 	);

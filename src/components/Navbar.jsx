@@ -69,7 +69,9 @@ const Navbar = () => {
 				</div>
 				<div className='hidden md:flex items-center gap-6'>
 					<div>
+						<Link to='/Cart'>
 						<IoIosBasket className='w-7 h-7 cursor-pointer' />
+						</Link>
 					</div>
 					<Button title='login' onClick={openModal} />
 				</div>

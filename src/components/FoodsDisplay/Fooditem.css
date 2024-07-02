@@ -91,3 +91,39 @@
         gap: 15px; /* Adjust gap for very small screens */
     }
 }
+
+.add {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    cursor: pointer;
+    z-index: 10; /* Ensure it appears above the image */
+    background-color: transparent;
+}
+
+.food-item-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.food-item-counter img {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.food-item-counter p {
+    margin: 0;
+    padding: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
