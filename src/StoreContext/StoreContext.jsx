@@ -12,15 +12,15 @@ const StoreContextProvider = (props) => {
 
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
-            setCartItems((prev) => ({...prev, [itemId]: 1}))
+            setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
         } else {
-            setCartItems((prev) => ({...prev, [itemId]:prev[itemId] + 1}))
+            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         }
     }
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]:prev[itemId] - 1}))
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
     }
-    
+
     const getFood = async () => {
         const res = await axios.get(foodurl);
         setFoodLIst(res.data.data);
@@ -33,10 +33,18 @@ const StoreContextProvider = (props) => {
             }
         }
         loadData();
-    },[])
-    useEffect(() => {
-        console.log(cartItems);
-    }, [cartItems])
+    }, [])
+
+    const getTotalCart = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let iteminfo = food_list.find((product) => product._id === item);
+                totalAmount += iteminfo.price * cartItems[item];
+            }
+        }
+        return totalAmount;
+    }
     const contextValue = {
         food_list,
         url,
@@ -45,7 +53,8 @@ const StoreContextProvider = (props) => {
         cartItems,
         setCartItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        getTotalCart
     }
     return (
         <StoreContext.Provider value={contextValue}>
