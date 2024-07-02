@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Error = () => {
+	const navigate = useNavigate();
+
 	return (
 		<section>
 			<div class='bg-black text-white'>
@@ -279,6 +281,11 @@ const Error = () => {
 							class='bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent'>
 							Have another go
 						</Link>
+						<button
+							onClick={() => navigate(-1)}
+							className='bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent'>
+							Go Back
+						</button>
 					</div>
 				</div>
 			</div>
