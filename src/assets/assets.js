@@ -1,4 +1,15 @@
-export const food_list = [
+import add_icon from './add-icon.png';
+import green_plus from './green-plus.jpg';
+import red_minus from './red-minus.png';
+
+const assets = {
+    add_icon,
+    green_plus,
+    red_minus
+};
+
+export default assets;
+/*export const food_list = [
     {
         _id: 1,
         name: "Margherita Pizza",
@@ -727,4 +738,4 @@ export const food_list = [
         ingredients: ["Vodka, Heavy Cream, Kahlu"],
         price: 3.99
     }
-]
+]*/
