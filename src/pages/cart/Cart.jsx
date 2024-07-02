@@ -3,7 +3,7 @@ import './cart.css';
 import { StoreContext } from "../../StoreContext/StoreContext";
 
 const Cart = () => {
-    const {cartItems, food_list, removeFromCart} = useContext(StoreContext);
+    const { cartItems, food_list, removeFromCart } = useContext(StoreContext);
 
     return (
         <div className="cart">
@@ -19,14 +19,22 @@ const Cart = () => {
                 <br />
                 <hr />
                 {food_list.map((item, index) => {
-                    if(cartItems[item._id] > 0)
-                        {
-                            return (
-                                <div className="cart-item-title cart-items-item">
+                    if (cartItems[item._id] > 0) {
+                        return (
+                            <div>
+                                <div className="cart-items-title cart-items-item">
+                                    <img src={`http://localhost:4000/images/${item.image}`} alt="" />
                                     <p>{item.name}</p>
+                                    <p>R {item.price}</p>
+                                    <p>{cartItems[item._id]}</p>
+                                    <p>R {item.price * cartItems[item._id]}</p>
+                                    <p onClick={() => removeFromCart(item._id)} className="remove_cross">X</p>
                                 </div>
-                            )
-                        }
+                                <hr />
+                            </div>
+
+                        )
+                    }
                 })}
             </div>
         </div>
