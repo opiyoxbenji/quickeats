@@ -10,19 +10,14 @@ const CategorySelection = ({ onSelectCategory, activeCategory }) => {
 	];
 
 	return (
-		<div className='container-fluid'>
-			<div className='row'>
-				<h1 className='text-center col-12 fw-bold mt-3 mb-5'>
-					Top Rated Menu Items
-				</h1>
-			</div>
+		<div className='container-fluid text-center col-12 fw-bold mt-3 mb-5 font-bold'>
 			<div className='row justify-content-center'>
 				{categories.map((category, index) => (
 					<button
 						key={index}
 						className={`btn btn-primary m-2 ${
 							activeCategory === category ? 'active' : ''
-						}`}
+						}  hover:text-orange-500`}
 						onClick={() => onSelectCategory(category)}>
 						{category}
 					</button>
