@@ -23,10 +23,9 @@ const CategorySelection = ({ onSelectCategory, activeCategory }) => {
 						onClick={() => onSelectCategory(category)}>
 						<span className='relative pb-1'>
 							{category}
-							{/* Red underline for active category */}
 							{activeCategory === category && (
 								<span
-									className='absolute left-0 bottom-0 w-full h-0.5 bg-orange-600'
+									className='absolute left-0 bottom-[-0.5rem] w-full h-0.5 bg-red-600'
 									aria-hidden='true'></span>
 							)}
 						</span>

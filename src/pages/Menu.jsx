@@ -6,8 +6,8 @@ import Category from '../components/CategorySelection';
 
 const FoodDisplay = () => {
 	const { food_list } = useContext(StoreContext);
-	const [activeCategory, setActiveCategory] = useState('');
-	const [filteredFoodList, setFilteredFoodList] = useState(food_list);
+	const [activeCategory, setActiveCategory] = useState('Pizza & Burgers');
+	const [filteredFoodList, setFilteredFoodList] = useState([]);
 
 	const categoriesMap = {
 		'Pizza & Burgers': ['Pizza', 'Burgers'],
@@ -18,25 +18,20 @@ const FoodDisplay = () => {
 	};
 
 	useEffect(() => {
-		if (activeCategory) {
-			const relevantCategories = categoriesMap[activeCategory];
-			const filteredItems = food_list.filter(item =>
-				relevantCategories.includes(item.category)
-			);
-			setFilteredFoodList(filteredItems);
-		} else {
-			setFilteredFoodList(food_list);
-		}
+		const relevantCategories = categoriesMap[activeCategory] || [];
+		const filteredItems = food_list.filter(item =>
+			relevantCategories.includes(item.category)
+		);
+		setFilteredFoodList(filteredItems);
 	}, [activeCategory, food_list]);
 
 	const handleSelectCategory = category => {
-		console.log('Selected Category:', category); // Debugging line
 		setActiveCategory(category);
 	};
 
 	return (
 		<div className='display-foods' id='display-foods'>
-			<h2 className='flex items-center justify-center text-center p-2'>
+			<h2 className='flex items-center justify-center text-center p-2 text-3xl'>
 				Top Dishes near you
 			</h2>
 			<Category
