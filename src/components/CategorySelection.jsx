@@ -10,7 +10,7 @@ const CategorySelection = ({ onSelectCategory, activeCategory }) => {
 	];
 
 	return (
-		<div className='container-fluid text-center col-12 fw-bold mt-3 mb-5 font-bold'>
+		<div className='container-fluid text-center col-12 fw-bold mt-3 mb-5 font-bold text-[#502314]'>
 			<div className='row justify-content-center'>
 				{categories.map((category, index) => (
 					<button

@@ -39,7 +39,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div className='md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5'>
-					<nav className='flex md:flex-row flex-col md:gap-[4vw] gap-8'>
+					<nav className='flex md:flex-row flex-col md:gap-[4vw] gap-8 text-[#502314]'>
 						<Link
 							className='font-bold hover:text-orange-500 cursor-pointer'
 							to='/'>
@@ -70,7 +70,7 @@ const Navbar = () => {
 				<div className='hidden md:flex items-center gap-6'>
 					<div>
 						<Link to='/Cart'>
-						<IoIosBasket className='w-7 h-7 cursor-pointer' />
+							<IoIosBasket className='w-7 h-7 cursor-pointer' />
 						</Link>
 					</div>
 					<Button title='login' onClick={openModal} />
