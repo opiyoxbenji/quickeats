@@ -28,8 +28,9 @@ const StoreContextProvider = (props) => {
     useEffect(() => {
         async function loadData() {
             await getFood();
-            if (localStorage.getItem("token")) {
-                setToken(localStorage.getItem("token"));
+            const storedToken = localStorage.getItem("token") || sessionStorage.getItem("token");
+            if (storedToken) {
+                setToken(storedToken);
             }
         }
         loadData();
