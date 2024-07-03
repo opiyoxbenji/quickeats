@@ -17,7 +17,7 @@ const CategorySelection = ({ onSelectCategory, activeCategory }) => {
 						key={index}
 						className={`btn btn-primary m-2 relative ${
 							activeCategory === category
-								? 'active hover:text-orange-500'
+								? 'active hover:text-red-500 text-red-700'
 								: ''
 						}`}
 						onClick={() => onSelectCategory(category)}>
