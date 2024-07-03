@@ -9,6 +9,7 @@ import About from './pages/About';
 import Layout from './components/Layout';
 import Error from './pages/Error'
 import Cart from './pages/cart/Cart.jsx';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				<Route path='/about' element={<About />} />
 				<Route path='*' element={ <Error />} />
 				<Route path='/cart' element={ <Cart /> }/>
+				<Route path='/order' element={ <PlaceOrder />} />
 			</Route>
 		</Routes>
 	);
