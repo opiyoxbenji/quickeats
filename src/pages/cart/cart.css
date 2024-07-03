@@ -2,7 +2,7 @@
 	margin-top: 100px;
 	overflow: hidden;
 	height: 100vh;
-    padding: 0 100px;
+	padding: 0 100px;
 }
 
 .cart-items-title {
@@ -11,7 +11,7 @@
 	align-items: center;
 	color: black;
 	font-size: max(1vw, 15px);
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .cart-items-item {

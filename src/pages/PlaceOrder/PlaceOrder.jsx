@@ -14,7 +14,7 @@ const PlaceOrder = () => {
                 </div>
                 <input type="email" placeholder="Email address" />
                 <input type="text" placeholder="Street Name" />
-                <div className="multi-fields">
+                <div className="multi-fields"> 
                     <input type="text" placeholder="City" />
                     <input type="text" placeholder="State" />
                 </div>
@@ -26,7 +26,7 @@ const PlaceOrder = () => {
             </div>
             <div className="place-order-right">
                 <div className='cart-total'>
-                    <h2 className="font-bold">Cart Total</h2>
+                    <h2 className="font-bold text-xl">Cart Total</h2>
                     <div>
                     <div className='cart-total-details'>
 							<p>Subtotal</p>
