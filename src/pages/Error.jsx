@@ -281,11 +281,11 @@ const Error = () => {
 							class='bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent'>
 							Have another go
 						</Link>
-						<button
+						{/* <button
 							onClick={() => navigate(-1)}
 							className='bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent'>
 							Go Back
-						</button>
+						</button> */}
 					</div>
 				</div>
 			</div>
