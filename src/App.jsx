@@ -10,6 +10,7 @@ import Layout from './components/Layout';
 import Error from './pages/Error'
 import Cart from './pages/cart/Cart.jsx';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx';
+import PaymentPage from './pages/Payment/Payment.jsx';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path='*' element={ <Error />} />
 				<Route path='/cart' element={ <Cart /> }/>
 				<Route path='/order' element={ <PlaceOrder />} />
+				<Route path='/payment' element={ <PaymentPage />} />
 			</Route>
 		</Routes>
 	);
