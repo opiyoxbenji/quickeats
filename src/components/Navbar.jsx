@@ -16,18 +16,21 @@ const Navbar = () => {
 
 	useEffect(() => {}, [token]);
 
+	// Toggle menu visibilty
 	const handleChange = () => {
 		setMenu(!menu);
 	};
-
+	// Open Modal
 	const openModal = () => {
 		setIsModalOpen(true);
 	};
 
+	// Close modal
 	const closeModal = () => {
 		setIsModalOpen(false);
 	};
 
+	// Logout logic
 	const handleLogout = () => {
 		localStorage.removeItem('token');
 		setToken('');
@@ -38,6 +41,7 @@ const Navbar = () => {
 		<div>
 			<nav className='flex justify-between items-center w-[92%] mx-auto h-20'>
 				<div>
+					{/* Logo and brand link */}
 					<Link
 						to='/'
 						className='flex items-center text-3xl font-bold text-orange-700'>
