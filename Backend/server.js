@@ -7,10 +7,10 @@ import orderRoute from "./routes/orderRoute.js";
 import "dotenv/config";
 
 const app = express();
-const port = 4000;
+const port = 4001;
 app.use(express.json());
 app.use(cors());
-connectDB();
+connectDB(); 
 app.use("/api/food", foodRouter);
 app.use("/images", express.static('uploads'));
 app.use("/api/user", routeUsers);
