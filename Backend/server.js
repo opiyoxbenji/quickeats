@@ -7,7 +7,7 @@ import orderRoute from "./routes/orderRoute.js";
 import "dotenv/config";
 
 const app = express();
-const port = 4001;
+const port = 4000;
 app.use(express.json());
 app.use(cors());
 connectDB(); 
