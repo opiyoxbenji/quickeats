@@ -2,6 +2,8 @@ import React from 'react';
 import { FaDiscord, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
+	const currentYear = new Date().getFullYear();
+
 	return (
 		<footer className='bg-white dark:bg-slate-900 mt-auto'>
 			<div className='mx-auto max-w-screen-xl p-4 py-6 lg:py-8'>
@@ -123,7 +125,7 @@ const Footer = () => {
 				<hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8' />
 				<div className='sm:flex sm:items-center sm:justify-between'>
 					<span className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
-						© 2024{' '}
+						© {currentYear} {' '}
 						<a
 							href='https://quickeats.com/'
 							className=' font-bold hover:text-yellow-400'>
