@@ -40,7 +40,9 @@ const FoodDisplay = () => {
 			/>
 			<div className='food-display-list'>
 				{filteredFoodList.length === 0 ? (
-					<p>No items available for this category.</p>
+					<p className='text-2xl'>
+						No items available for this category.
+					</p>
 				) : (
 					filteredFoodList.map((item, index) => (
 						<FoodItem

@@ -44,7 +44,7 @@ const Navbar = () => {
 					{/* Logo and brand link */}
 					<Link
 						to='/'
-						className='flex items-center text-3xl font-bold text-orange-700'>
+						className='flex items-center text-3xl font-bold text-orange-700'> 
 						<span>
 							Quick<span className='text-red-900'>Eats</span>
 						</span>

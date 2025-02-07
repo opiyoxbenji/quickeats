@@ -10,7 +10,7 @@ const Footer = () => {
 				<div className='grid gap-12 lg:grid-cols-4'>
 					<div className='space-y-4'>
 						<a
-							href='https://quickeats.com/'
+							href='http://localhost:5173/'
 							className='group flex items-center space-x-3'>
 							<img
 								src='https://cdn-icons-png.flaticon.com/512/1046/1046784.png'
@@ -105,7 +105,7 @@ const Footer = () => {
 					<span className='text-sm text-gray-600 dark:text-gray-400'>
 						© {currentYear}{' '}
 						<a
-							href='https://quickeats.com/'
+							href='http://localhost:5173/'
 							className='font-semibold hover:text-red-500 dark:hover:text-red-400'>
 							QuickEats™
 						</a>
