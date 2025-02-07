@@ -110,7 +110,7 @@ const Add = () => {
 				</div>
 				<div className='add-category-price'>
 					<div className='add-category flex-col'>
-						<p>Category of Product</p>
+						<p>Category of Product</p> 
 						<select
 							onChange={onChangeHandler}
 							name='category'

@@ -1,38 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import { FaDiscord, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import { NavLink } from 'react-router-dom';
+import { PlusCircle, List, ShoppingBag } from 'lucide-react';
 
-const Footer = () => {
-	// Add scroll visibility state and handler
-	const [isVisible, setIsVisible] = useState(false);
-	const currentYear = new Date().getFullYear();
-
-	useEffect(() => {
-		// Handle scroll event to show/hide footer
-		const handleScroll = () => {
-			const scrolledToBottom =
-				window.innerHeight + window.pageYOffset >=
-				document.documentElement.scrollHeight - 20;
-			setIsVisible(scrolledToBottom);
-		};
-
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
-
+const Sidebar = () => {
 	return (
-		<footer
-			className={`
-        fixed bottom-0 left-0 right-0 
-        bg-gradient-to-b from-white to-gray-50 
-        dark:from-slate-900 dark:to-slate-800 
-        transform transition-transform duration-300 ease-in-out
-        ${isVisible ? 'translate-y-0' : 'translate-y-full'}
-        shadow-lg z-50
-      `}>
-			{/* Rest of your footer content remains the same */}
-			{/* ... */}
-		</footer>
+		<div className='min-h-screen w-64 bg-gray-900 text-gray-100 shadow-lg'>
+			<div className='p-4'>
+				<h2 className='mb-6 text-xl font-bold text-gray-100'>
+					Admin Panel
+				</h2>
+
+				<nav className='space-y-2'>
+					<NavLink
+						to='/add'
+						className={({ isActive }) => `
+              flex items-center gap-3 rounded-lg px-4 py-3
+              transition-all duration-200
+              ${
+					isActive
+						? 'bg-blue-600 text-white shadow-lg'
+						: 'text-gray-300 hover:bg-gray-800 hover:text-white'
+				}
+            `}>
+						<PlusCircle className='h-5 w-5' />
+						<span className='font-medium'>Add Items</span>
+					</NavLink>
+
+					<NavLink
+						to='/list'
+						className={({ isActive }) => `
+              flex items-center gap-3 rounded-lg px-4 py-3
+              transition-all duration-200
+              ${
+					isActive
+						? 'bg-blue-600 text-white shadow-lg'
+						: 'text-gray-300 hover:bg-gray-800 hover:text-white'
+				}
+            `}>
+						<List className='h-5 w-5' />
+						<span className='font-medium'>List Items</span>
+					</NavLink>
+
+					<NavLink
+						to='/orders'
+						className={({ isActive }) => `
+              flex items-center gap-3 rounded-lg px-4 py-3
+              transition-all duration-200
+              ${
+					isActive
+						? 'bg-blue-600 text-white shadow-lg'
+						: 'text-gray-300 hover:bg-gray-800 hover:text-white'
+				}
+            `}>
+						<ShoppingBag className='h-5 w-5' />
+						<span className='font-medium'>Orders</span>
+					</NavLink>
+				</nav>
+			</div>
+		</div>
 	);
 };
 
-export default Footer;
+export default Sidebar;
