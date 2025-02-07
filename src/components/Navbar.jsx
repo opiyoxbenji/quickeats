@@ -7,7 +7,7 @@ import Button from './Button';
 import Modal from './Modal';
 import { StoreContext } from '../StoreContext/StoreContext';
 import { useNavigate } from 'react-router-dom';
-
+ 
 const Navbar = () => {
 	const { token, setToken } = useContext(StoreContext);
 	const [menu, setMenu] = useState(false);
