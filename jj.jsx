@@ -1,112 +1,155 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { IoIosBasket } from 'react-icons/io';
+import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
+import Button from './Button';
+import Modal from './Modal';
 import { StoreContext } from '../StoreContext/StoreContext';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, Minus, Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const FoodItemDetail = () => {
+const Navbar = () => {
+	const { token, setToken, cartItems } = useContext(StoreContext);
+	const [menu, setMenu] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const navigate = useNavigate();
-	const location = useLocation();
-	const item = location.state;
 
-	const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-	const itemCount = cartItems[item?.id] || 0;
+	useEffect(() => {}, [token]);
 
-	// If no item data is found, show error or redirect
-	if (!item) {
-		return (
-			<div className='min-h-screen bg-gray-50 flex items-center justify-center'>
-				<div className='text-center'>
-					<h1 className='text-2xl font-bold text-gray-900 mb-4'>
-						Item Not Found
-					</h1>
-					<button
-						onClick={() => navigate('/menu')}
-						className='flex items-center justify-center gap-2 text-gray-600 hover:text-gray-900'>
-						<ArrowLeft className='h-6 w-6' />
-						Back to Menu
-					</button>
-				</div>
-			</div>
-		);
-	}
+	const handleChange = () => {
+		setMenu(!menu);
+	};
+
+	const openModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpen(false);
+	};
+
+	const handleLogout = () => {
+		localStorage.removeItem('token');
+		setToken('');
+		navigate('/');
+	};
 
 	return (
-		<div className='min-h-screen bg-gray-50'>
-			{/* Header */}
-			<div className='sticky top-0 z-10 bg-white shadow-md'>
-				<div className='container mx-auto px-4 py-4'>
-					<button
-						onClick={() => navigate(-1)}
-						className='flex items-center text-gray-600 hover:text-gray-900'>
-						<ArrowLeft className='h-6 w-6 mr-2' />
-						Back to Menu
-					</button>
+		<div>
+			<nav className='flex justify-between items-center w-[92%] mx-auto h-20'>
+				<div>
+					<Link
+						to='/'
+						className='flex items-center text-3xl font-bold text-orange-700'>
+						<span>
+							Quick<span className='text-red-900'>Eats</span>
+						</span>
+						<img
+							src='https://cdn-icons-png.flaticon.com/512/1046/1046784.png'
+							alt='Burger Icon'
+							className='w-auto h-12 ml-1'
+						/>
+					</Link>
 				</div>
-			</div>
-
-			{/* Hero Image */}
-			<div className='relative h-64 md:h-96 w-full'>
-				<img
-					src={'http://localhost:4000/images/' + item.image}
-					alt={item.name}
-					className='w-full h-full object-cover'
-				/>
-			</div>
-
-			{/* Content */}
-			<div className='container mx-auto px-4 py-8'>
-				<div className='max-w-3xl mx-auto'>
-					{/* Title and Price */}
-					<div className='flex justify-between items-start mb-6'>
-						<div>
-							<h1 className='text-3xl font-bold text-gray-900'>
-								{item.name}
-							</h1>
-							<p className='text-xl font-semibold text-red-500'>
-								R {item.price}
-							</p>
+				<div className='md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5'>
+					<nav className='flex md:flex-row flex-col md:gap-[4vw] gap-8 text-[#502314]'>
+						<Link
+							className='font-bold hover:text-orange-500 cursor-pointer'
+							to='/'>
+							Home
+						</Link>
+						<Link
+							className='font-bold hover:text-orange-500 cursor-pointer'
+							to='/menu'>
+							Menu
+						</Link>
+						<Link
+							className='font-bold hover:text-orange-500 cursor-pointer'
+							to='/contact'>
+							Contact
+						</Link>
+						<Link
+							className='font-bold hover:text-orange-500 cursor-pointer'
+							to='/about'>
+							About
+						</Link>
+					</nav>
+				</div>
+				{token ? (
+					<div className='hidden md:flex items-center gap-6'>
+						<div className='relative'>
+							<Link to='/Cart'>
+								<IoIosBasket className='w-7 h-7 cursor-pointer' />
+								{cartItemCount > 0 && (
+									<div className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold'>
+										{cartItemCount}
+									</div>
+								)}
+							</Link>
 						</div>
-
-						{/* Add to Cart Controls */}
-						<div className='bg-white rounded-lg shadow-md p-2'>
-							{!itemCount ? (
-								<button
-									onClick={() => addToCart(item.id)}
-									className='flex items-center justify-center gap-2 bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors'>
-									<Plus className='h-5 w-5' />
-									Add to Cart
-								</button>
-							) : (
-								<div className='flex items-center gap-4'>
-									<button
-										onClick={() => removeFromCart(item.id)}
-										className='p-2 rounded-full bg-red-100 text-red-500 hover:bg-red-200'>
-										<Minus className='h-5 w-5' />
-									</button>
-									<span className='font-semibold text-xl min-w-[2rem] text-center'>
-										{itemCount}
-									</span>
-									<button
-										onClick={() => addToCart(item.id)}
-										className='p-2 rounded-full bg-green-100 text-green-500 hover:bg-green-200'>
-										<Plus className='h-5 w-5' />
-									</button>
-								</div>
-							)}
+						<div className='flex items-center gap-6'>
+							<Link to='/profile'>
+								<FaUserCircle className='w-7 h-7 cursor-pointer text-gray-700 hover:text-gray-900' />
+							</Link>
+							<button
+								className='text-gray-700 hover:text-gray-900'
+								onClick={handleLogout}>
+								<FaSignOutAlt className='w-7 h-7 cursor-pointer' />
+							</button>
 						</div>
 					</div>
-
-					{/* Description */}
-					<div className='prose max-w-none mb-8'>
-						<h2 className='text-xl font-semibold mb-4'>
-							Description
-						</h2>
-						<p className='text-gray-600'>{item.description}</p>
+				) : (
+					<div className='hidden md:flex items-center gap-6'>
+						<div className='relative'>
+							<Link to='/Cart'>
+								<IoIosBasket className='w-7 h-7 cursor-pointer' />
+								{cartItemCount > 0 && (
+									<div className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold'>
+										{cartItemCount}
+									</div>
+								)}
+							</Link>
+						</div>
+						<Button title='login' onClick={openModal} />
 					</div>
+				)}
+				<div className='md:hidden flex items-center'>
+					{!menu ? (
+						<AiOutlineMenu size={20} onClick={handleChange} />
+					) : (
+						<AiOutlineClose size={20} onClick={handleChange} />
+					)}
 				</div>
-			</div>
+
+				<div
+					className={`${
+						menu ? 'translate-x-0' : '-translate-x-full'
+					} lg:hidden flex flex-col fixed bg-orange-500 bg-opacity-80 backdrop-filter backdrop-blur-sm text-white left-0 top-[4rem] font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-64 h-auto transition-transform duration-300 z-50 shadow-lg`}>
+					<Link
+						className='font-bold hover:text-black cursor-pointer px-4 py-2 transition-colors duration-300'
+						to='/'>
+						Home
+					</Link>
+					<Link
+						className='font-bold hover:text-black cursor-pointer px-4 py-2 transition-colors duration-300'
+						to='/menu'>
+						Menu
+					</Link>
+					<Link
+						className='font-bold hover:text-black cursor-pointer px-4 py-2 transition-colors duration-300'
+						to='/contact'>
+						Contact
+					</Link>
+					<Link
+						className='font-bold hover:text-black cursor-pointer px-4 py-2 transition-colors duration-300'
+						to='/about'>
+						About
+					</Link>
+				</div>
+			</nav>
+			<Modal isOpen={isModalOpen} onClose={closeModal} />
 		</div>
 	);
 };
 
-export default FoodItemDetail;
+export default Navbar;

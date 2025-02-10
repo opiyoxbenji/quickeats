@@ -2,35 +2,43 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { IoIosBasket } from 'react-icons/io';
-import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa'; // Import icons for user and logout
+import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import Button from './Button';
 import Modal from './Modal';
 import { StoreContext } from '../StoreContext/StoreContext';
 import { useNavigate } from 'react-router-dom';
- 
+
 const Navbar = () => {
-	const { token, setToken } = useContext(StoreContext);
+	const { token, setToken, cartItems } = useContext(StoreContext);
 	const [menu, setMenu] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const navigate = useNavigate();
 
+	// Calculate total items in cart
+	const getTotalCartItems = () => {
+		let totalItems = 0;
+		for (const item in cartItems) {
+			if (cartItems[item] > 0) {
+				totalItems += cartItems[item];
+			}
+		}
+		return totalItems;
+	};
+
 	useEffect(() => {}, [token]);
 
-	// Toggle menu visibilty
 	const handleChange = () => {
 		setMenu(!menu);
 	};
-	// Open Modal
+
 	const openModal = () => {
 		setIsModalOpen(true);
 	};
 
-	// Close modal
 	const closeModal = () => {
 		setIsModalOpen(false);
 	};
 
-	// Logout logic
 	const handleLogout = () => {
 		localStorage.removeItem('token');
 		setToken('');
@@ -41,10 +49,9 @@ const Navbar = () => {
 		<div>
 			<nav className='flex justify-between items-center w-[92%] mx-auto h-20'>
 				<div>
-					{/* Logo and brand link */}
 					<Link
 						to='/'
-						className='flex items-center text-3xl font-bold text-orange-700'> 
+						className='flex items-center text-3xl font-bold text-orange-700'>
 						<span>
 							Quick<span className='text-red-900'>Eats</span>
 						</span>
@@ -67,11 +74,6 @@ const Navbar = () => {
 							to='/menu'>
 							Menu
 						</Link>
-						{/* <Link
-                            className='font-bold hover:text-orange-500 cursor-pointer'
-                            to='/offers'>
-                            Offers
-                        </Link> */}
 						<Link
 							className='font-bold hover:text-orange-500 cursor-pointer'
 							to='/contact'>
@@ -86,14 +88,17 @@ const Navbar = () => {
 				</div>
 				{token ? (
 					<div className='hidden md:flex items-center gap-6'>
-						<div>
+						<div className='relative'>
 							<Link to='/Cart'>
 								<IoIosBasket className='w-7 h-7 cursor-pointer' />
+								{getTotalCartItems() > 0 && (
+									<div className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold'>
+										{getTotalCartItems()}
+									</div>
+								)}
 							</Link>
 						</div>
-						{/* User-specific elements */}
 						<div className='flex items-center gap-6'>
-							{/* Replace with user profile, logout button, etc. */}
 							<Link to='/profile'>
 								<FaUserCircle className='w-7 h-7 cursor-pointer text-gray-700 hover:text-gray-900' />
 							</Link>
@@ -106,9 +111,14 @@ const Navbar = () => {
 					</div>
 				) : (
 					<div className='hidden md:flex items-center gap-6'>
-						<div>
+						<div className='relative'>
 							<Link to='/Cart'>
 								<IoIosBasket className='w-7 h-7 cursor-pointer' />
+								{getTotalCartItems() > 0 && (
+									<div className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold'>
+										{getTotalCartItems()}
+									</div>
+								)}
 							</Link>
 						</div>
 						<Button title='login' onClick={openModal} />
