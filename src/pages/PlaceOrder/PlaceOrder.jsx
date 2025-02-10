@@ -15,11 +15,11 @@ const PlaceOrder = () => {
                     <input type="text" placeholder="Last Name" />
                 </div>
                 <input type="email" placeholder="Email address" />
-                <input type="text" placeholder="Street Name" />
-                <div className="multi-fields"> 
+                <input type="text" placeholder="Address" />
+                {/* <div className="multi-fields"> 
                     <input type="text" placeholder="City" />
                     <input type="text" placeholder="State" />
-                </div>
+                </div> */}
                 <div className="multi-fields">
                     <input type="text" placeholder="Zip code" />
                     <input type="text" placeholder="Country" />

@@ -1,63 +1,112 @@
-import { NavLink } from 'react-router-dom';
-import { PlusCircle, List, ShoppingBag } from 'lucide-react';
+import React, { useContext } from 'react';
+import { StoreContext } from '../StoreContext/StoreContext';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { ArrowLeft, Minus, Plus } from 'lucide-react';
 
-const Sidebar = () => {
+const FoodItemDetail = () => {
+	const navigate = useNavigate();
+	const location = useLocation();
+	const item = location.state;
+
+	const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+	const itemCount = cartItems[item?.id] || 0;
+
+	// If no item data is found, show error or redirect
+	if (!item) {
+		return (
+			<div className='min-h-screen bg-gray-50 flex items-center justify-center'>
+				<div className='text-center'>
+					<h1 className='text-2xl font-bold text-gray-900 mb-4'>
+						Item Not Found
+					</h1>
+					<button
+						onClick={() => navigate('/menu')}
+						className='flex items-center justify-center gap-2 text-gray-600 hover:text-gray-900'>
+						<ArrowLeft className='h-6 w-6' />
+						Back to Menu
+					</button>
+				</div>
+			</div>
+		);
+	}
+
 	return (
-		<div className='min-h-screen w-64 bg-gray-900 text-gray-100 shadow-lg'>
-			<div className='p-4'>
-				<h2 className='mb-6 text-xl font-bold text-gray-100'>
-					Admin Panel
-				</h2>
+		<div className='min-h-screen bg-gray-50'>
+			{/* Header */}
+			<div className='sticky top-0 z-10 bg-white shadow-md'>
+				<div className='container mx-auto px-4 py-4'>
+					<button
+						onClick={() => navigate(-1)}
+						className='flex items-center text-gray-600 hover:text-gray-900'>
+						<ArrowLeft className='h-6 w-6 mr-2' />
+						Back to Menu
+					</button>
+				</div>
+			</div>
 
-				<nav className='space-y-2'>
-					<NavLink
-						to='/add'
-						className={({ isActive }) => `
-              flex items-center gap-3 rounded-lg px-4 py-3
-              transition-all duration-200
-              ${
-					isActive
-						? 'bg-blue-600 text-white shadow-lg'
-						: 'text-gray-300 hover:bg-gray-800 hover:text-white'
-				}
-            `}>
-						<PlusCircle className='h-5 w-5' />
-						<span className='font-medium'>Add Items</span>
-					</NavLink>
+			{/* Hero Image */}
+			<div className='relative h-64 md:h-96 w-full'>
+				<img
+					src={'http://localhost:4000/images/' + item.image}
+					alt={item.name}
+					className='w-full h-full object-cover'
+				/>
+			</div>
 
-					<NavLink
-						to='/list'
-						className={({ isActive }) => `
-              flex items-center gap-3 rounded-lg px-4 py-3
-              transition-all duration-200
-              ${
-					isActive
-						? 'bg-blue-600 text-white shadow-lg'
-						: 'text-gray-300 hover:bg-gray-800 hover:text-white'
-				}
-            `}>
-						<List className='h-5 w-5' />
-						<span className='font-medium'>List Items</span>
-					</NavLink>
+			{/* Content */}
+			<div className='container mx-auto px-4 py-8'>
+				<div className='max-w-3xl mx-auto'>
+					{/* Title and Price */}
+					<div className='flex justify-between items-start mb-6'>
+						<div>
+							<h1 className='text-3xl font-bold text-gray-900'>
+								{item.name}
+							</h1>
+							<p className='text-xl font-semibold text-red-500'>
+								R {item.price}
+							</p>
+						</div>
 
-					<NavLink
-						to='/orders'
-						className={({ isActive }) => `
-              flex items-center gap-3 rounded-lg px-4 py-3
-              transition-all duration-200
-              ${
-					isActive
-						? 'bg-blue-600 text-white shadow-lg'
-						: 'text-gray-300 hover:bg-gray-800 hover:text-white'
-				}
-            `}>
-						<ShoppingBag className='h-5 w-5' />
-						<span className='font-medium'>Orders</span>
-					</NavLink>
-				</nav>
+						{/* Add to Cart Controls */}
+						<div className='bg-white rounded-lg shadow-md p-2'>
+							{!itemCount ? (
+								<button
+									onClick={() => addToCart(item.id)}
+									className='flex items-center justify-center gap-2 bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors'>
+									<Plus className='h-5 w-5' />
+									Add to Cart
+								</button>
+							) : (
+								<div className='flex items-center gap-4'>
+									<button
+										onClick={() => removeFromCart(item.id)}
+										className='p-2 rounded-full bg-red-100 text-red-500 hover:bg-red-200'>
+										<Minus className='h-5 w-5' />
+									</button>
+									<span className='font-semibold text-xl min-w-[2rem] text-center'>
+										{itemCount}
+									</span>
+									<button
+										onClick={() => addToCart(item.id)}
+										className='p-2 rounded-full bg-green-100 text-green-500 hover:bg-green-200'>
+										<Plus className='h-5 w-5' />
+									</button>
+								</div>
+							)}
+						</div>
+					</div>
+
+					{/* Description */}
+					<div className='prose max-w-none mb-8'>
+						<h2 className='text-xl font-semibold mb-4'>
+							Description
+						</h2>
+						<p className='text-gray-600'>{item.description}</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
 };
 
-export default Sidebar;
+export default FoodItemDetail;
