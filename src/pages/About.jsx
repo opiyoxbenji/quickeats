@@ -1,5 +1,5 @@
 import React from 'react';
-import chefImage from '../assets/chef.jpg';
+import chefImage from '../assets/images/chef.jpg';
 
 const About = () => {
 	return (
