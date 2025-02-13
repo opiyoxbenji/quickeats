@@ -11,7 +11,7 @@ import Error from './pages/Error';
 import Cart from './pages/cart/Cart.jsx';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx';
 import PaymentPage from './pages/Payment/Payment.jsx';
-import FoodItemDetail from './pages/FoodItemDetail.jsx';
+import FoodItemDetail from './components/FoodItemDetail/FoodItemDetail.jsx';
 
 function App() {
 	return (

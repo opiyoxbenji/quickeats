@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StoreContext } from '../StoreContext/StoreContext';
+import { StoreContext } from '../../StoreContext/StoreContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, Minus, Plus } from 'lucide-react';
 
@@ -45,7 +45,7 @@ const FoodItemDetail = () => {
 			</div>
 
 			{/* Hero Image */}
-			<div className='relative h-64 md:h-96 w-full'>
+			<div className='max-w-5xl mx-auto shadow-lg overflow-hidden'>
 				<img
 					src={'http://localhost:4000/images/' + item.image}
 					alt={item.name}
