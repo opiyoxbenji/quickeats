@@ -3,10 +3,10 @@ import { StoreContext } from '../../StoreContext/StoreContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, Minus, Plus } from 'lucide-react';
 
-const FoodItemDetail = () => {
+const MenuItem = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const item = location.state;
+	const item = location.state; 
 
 	const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 	const itemCount = cartItems[item?.id] || 0;
@@ -109,4 +109,4 @@ const FoodItemDetail = () => {
 	);
 };
 
-export default FoodItemDetail;
+export default MenuItem;

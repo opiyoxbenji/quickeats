@@ -8,10 +8,10 @@ import Contact from './pages/Contact';
 import About from './pages/About.jsx';
 import Layout from './components/layout/Layout';
 import Error from './pages/Error';
-import Cart from './pages/cart/Cart.jsx';
-import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx';
+import Cart from './pages/Cart.jsx';
+import PlaceOrder from './pages/PlaceOrder.jsx';
 import PaymentPage from './pages/Payment/Payment.jsx';
-import FoodItemDetail from './components/FoodItemDetail/FoodItemDetail.jsx';
+import MenuItem from '../src/components/menu/MenuItem.jsx';
 import Profile from './components/Profile/Profile.jsx';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 			<Route path='/' element={<Layout />}>
 				<Route path='/' element={<Home />} />
 				<Route path='/menu' element={<Menu />} />
-				<Route path='/menu/:id' element={<FoodItemDetail />} />
+				<Route path='/menu/:id' element={<MenuItem />} />
 				<Route path='/offers' element={<Offers />} />
 				<Route path='/contact' element={<Contact />} />
 				<Route path='/about' element={<About />} />

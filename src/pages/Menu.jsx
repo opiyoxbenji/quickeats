@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import '../components/FoodsDisplay/FoodsDisplay.css';
 import { StoreContext } from '../StoreContext/StoreContext';
 import FoodItem from '../components/FoodsDisplay/FoodItem';
-import Category from '../components/CategorySelection';
+import Category from '../components/ui/CategorySelection';
 
 const FoodDisplay = () => {
 	const { food_list } = useContext(StoreContext);

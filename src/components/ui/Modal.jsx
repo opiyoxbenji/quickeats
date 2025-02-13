@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
-import { StoreContext } from '../StoreContext/StoreContext';
+import { StoreContext } from '../../StoreContext/StoreContext';
 
 const Modal = ({ isOpen, onClose }) => {
 	const { setToken } = useContext(StoreContext);
