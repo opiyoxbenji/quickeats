@@ -56,4 +56,36 @@ const userRegistration = async (req, res) => {
     }
 }
 
-export {userLogin, userRegistration};
+const getAllUsers = async (req, res) => { 
+    try {
+        // fetch all users but exclude password field
+        const users = await userModel.find({}).select('-password');
+        if (!users || users.length === 0) {
+            return res.json({success: false, message: "No users found"});
+        }
+        res.json({success: true, users});
+    } catch (error) {
+        console.log(error);
+        res.json({success: false, message: "Error fetching users"});
+    }
+}
+const getUserById = async (req, res) => {
+    const id = req.params.id;
+    try {
+        // fetch user by ID but exclude password field
+        const user = await userModel.findById(id).select('-password');
+        if (!user) {
+            return res.json({success: false, message: "User not found"});
+        }
+        res.json({success: true, user});
+    } catch (error) {
+        console.log(error);
+        if (message(error) === "Not Found") {
+            res.json({success: false, message: "User not found"});
+        } else {
+            res.json({success: false, message: "Error fetching user details"});
+        }
+    }
+}
+
+export {userLogin, userRegistration, getAllUsers, getUserById};

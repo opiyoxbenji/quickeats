@@ -10,9 +10,9 @@ import Layout from './components/layout/Layout';
 import Error from './pages/Error';
 import Cart from './pages/Cart.jsx';
 import PlaceOrder from './pages/PlaceOrder.jsx';
-import PaymentPage from './pages/Payment/Payment.jsx';
+import PaymentPage from './pages/Payment.jsx';
 import MenuItem from '../src/components/menu/MenuItem.jsx';
-import Profile from './components/Profile/Profile.jsx';
+import Profile from './components/profile/Profile.jsx';
 
 function App() {
 	return (
