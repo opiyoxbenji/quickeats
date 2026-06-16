@@ -211,15 +211,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
 
   const handleItemClick = (e) => {
     if (e.target.closest("button")) return;
-    navigate(`/menu/${id}`, {
-      state: {
-        id,
-        name,
-        price,
-        description,
-        image,
-      },
-    });
+    navigate(`/menu/${id}`);
   };
 
   return (

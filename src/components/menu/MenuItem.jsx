@@ -111,9 +111,9 @@
 
 // export default MenuItem;
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { StoreContext } from "../../StoreContext/StoreContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeft,
   Minus,
@@ -149,8 +149,10 @@ const SpiceIndicator = ({ level }) => {
 
 const MenuItem = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const item = location.state;
+  const { id } = useParams();
+
+  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+
   const [activeTab, setActiveTab] = useState("description");
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(0);
@@ -170,15 +172,17 @@ const MenuItem = () => {
     },
   ]);
 
-  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-  const itemCount = item ? cartItems[item.id] || 0 : 0;
+  // Derive item from URL param — this reacts to navigation between products
+  const fullItem = food_list.find((p) => p._id === id) || null;
 
-  // Enrich item with extra fields from products data
-  const fullItem = item
-    ? food_list.find((p) => p._id === item.id) || item
-    : null;
+  // Reset tab when product changes
+  useEffect(() => {
+    setActiveTab("description");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]);
 
-  // Related items (same category, excluding current)
+  const itemCount = fullItem ? cartItems[fullItem._id] || 0 : 0;
+
   const relatedItems = fullItem
     ? food_list
         .filter(
@@ -186,6 +190,10 @@ const MenuItem = () => {
         )
         .slice(0, 3)
     : [];
+
+  const avgRating = reviews.length
+    ? (reviews.reduce((a, r) => a + r.rating, 0) / reviews.length).toFixed(1)
+    : "–";
 
   const submitReview = () => {
     if (!reviewText.trim() || reviewRating === 0) return;
@@ -204,10 +212,6 @@ const MenuItem = () => {
     setReviewText("");
     setReviewRating(0);
   };
-
-  const avgRating = reviews.length
-    ? (reviews.reduce((a, r) => a + r.rating, 0) / reviews.length).toFixed(1)
-    : "–";
 
   if (!fullItem) {
     return (
@@ -322,7 +326,7 @@ const MenuItem = () => {
 
                 {!itemCount ? (
                   <button
-                    onClick={() => addToCart(item.id)}
+                    onClick={() => addToCart(fullItem._id)}
                     className="w-full flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 active:scale-95 text-white font-bold py-4 rounded-xl transition-all duration-200 shadow-lg shadow-red-200 text-lg"
                   >
                     <Plus className="h-5 w-5" />
@@ -331,7 +335,7 @@ const MenuItem = () => {
                 ) : (
                   <div className="flex items-center justify-between bg-gray-100 rounded-xl p-2">
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => removeFromCart(fullItem._id)}
                       className="flex items-center justify-center h-12 w-12 rounded-lg bg-white shadow text-red-500 hover:bg-red-50 transition-colors"
                     >
                       <Minus className="h-5 w-5" />
@@ -340,7 +344,7 @@ const MenuItem = () => {
                       {itemCount}
                     </span>
                     <button
-                      onClick={() => addToCart(item.id)}
+                      onClick={() => addToCart(fullItem._id)}
                       className="flex items-center justify-center h-12 w-12 rounded-lg bg-red-500 shadow text-white hover:bg-red-600 transition-colors"
                     >
                       <Plus className="h-5 w-5" />
@@ -371,7 +375,6 @@ const MenuItem = () => {
           </div>
 
           <div className="p-8">
-            {/* Description tab */}
             {activeTab === "description" && (
               <div className="prose max-w-none text-gray-600 leading-relaxed">
                 <p>{fullItem.description}</p>
@@ -382,7 +385,6 @@ const MenuItem = () => {
               </div>
             )}
 
-            {/* Allergens tab */}
             {activeTab === "allergens" && (
               <div>
                 <div className="flex items-center gap-2 mb-4">
@@ -414,10 +416,8 @@ const MenuItem = () => {
               </div>
             )}
 
-            {/* Reviews tab */}
             {activeTab === "reviews" && (
               <div>
-                {/* Submit review */}
                 <div className="bg-gray-50 rounded-xl p-6 mb-6 border border-gray-100">
                   <h4 className="font-semibold text-gray-800 mb-3">
                     Leave a Review
@@ -432,11 +432,7 @@ const MenuItem = () => {
                         className="focus:outline-none"
                       >
                         <Star
-                          className={`h-7 w-7 transition-colors ${
-                            i <= (hoveredStar || reviewRating)
-                              ? "text-yellow-400"
-                              : "text-gray-200"
-                          }`}
+                          className={`h-7 w-7 transition-colors ${i <= (hoveredStar || reviewRating) ? "text-yellow-400" : "text-gray-200"}`}
                           fill={
                             i <= (hoveredStar || reviewRating)
                               ? "currentColor"
@@ -461,7 +457,6 @@ const MenuItem = () => {
                   </button>
                 </div>
 
-                {/* Review list */}
                 <div className="space-y-4">
                   {reviews.map((r, i) => (
                     <div
@@ -509,17 +504,7 @@ const MenuItem = () => {
               {relatedItems.map((r) => (
                 <button
                   key={r._id}
-                  onClick={() =>
-                    navigate(`/menu/${r._id}`, {
-                      state: {
-                        id: r._id,
-                        name: r.name,
-                        price: r.price,
-                        description: r.description,
-                        image: r.image,
-                      },
-                    })
-                  }
+                  onClick={() => navigate(`/menu/${r._id}`)}
                   className="bg-white rounded-xl shadow hover:shadow-md transition-shadow overflow-hidden text-left group"
                 >
                   <div className="aspect-video overflow-hidden">
