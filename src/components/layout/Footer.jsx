@@ -186,11 +186,13 @@ const Footer = () => {
                 onClick={() => navigate("/")}
                 className="flex items-center gap-3 group"
               >
-                <div className="h-10 w-10 rounded-xl bg-red-500 flex items-center justify-center shadow-lg shadow-red-900/30 group-hover:bg-red-400 transition-colors">
-                  <span className="text-white font-black text-lg">Q</span>
-                </div>
-                <span className="text-white text-2xl font-extrabold tracking-tight">
-                  Quick<span className="text-red-500">Eats</span>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
+                  alt="Burger Icon"
+                  className="w-auto h-12 ml-1"
+                />
+                <span className="text-orange-700 text-2xl font-extrabold tracking-tight">
+                  Quick<span className="text-red-800">Eats</span>
                 </span>
               </button>
               <p className="text-sm leading-relaxed max-w-xs">
@@ -245,7 +247,7 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
         <span>© {year} QuickEats™. All rights reserved.</span>
         <span className="flex items-center gap-1">
-          Made with <span className="text-red-500 mx-1">♥</span> in South Africa
+          Made with <span className="text-red-500 mx-1">♥</span> by OpiyoxBenji
         </span>
       </div>
     </footer>
